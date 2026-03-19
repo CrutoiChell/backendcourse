@@ -9,16 +9,32 @@ const __dirname = path.dirname(__filename)
 
 const app = express()
 
-// CORS configuration for production
+// Исправленная настройка CORS
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' 
-    ? [
-        'https://course-six-theta.vercel.app/', // Замените на ваш frontend URL
-        /\.vercel\.app$/ // Разрешить все Vercel preview URLs
-      ]
-    : ['http://localhost:3001', 'http://localhost:3000'],
-  credentials: true
+  origin: (origin, callback) => {
+    // Разрешаем запросы без origin (например, мобильные приложения или curl)
+    if (!origin) return callback(null, true);
+    
+    const allowedOrigins = [
+      'https://course-six-theta.vercel.app', // УБРАН слэш в конце
+      'http://localhost:3000',
+      'http://localhost:3001'
+    ];
+
+    // Разрешаем, если домен в списке или это превью-ссылка Vercel
+    if (allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }))
+
+// Важно для Vercel: явно отвечаем на предварительные запросы браузера
+app.options('*', cors())
 
 app.use(express.json())
 
