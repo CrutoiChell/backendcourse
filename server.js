@@ -11,25 +11,9 @@ const app = express()
 
 // Исправленный блок CORS: убрали слэш в конце и добавили обработку OPTIONS
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin) return callback(null, true);
-    
-    const allowedOrigins = [
-      'https://course-six-theta.vercel.app', // ТЕПЕРЬ БЕЗ СЛЭША
-      'http://localhost:3000',
-      'http://localhost:3001'
-    ];
-
-    if (allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}))
+  origin: "https://course-six-theta.vercel.app",
+  credentials: true
+}));
 
 // Добавлено для Vercel: ответ на предварительные запросы браузера
 app.options('*', cors())
