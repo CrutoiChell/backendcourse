@@ -11,9 +11,14 @@ const app = express()
 
 // CORS configuration for production
 app.use(cors({
-  origin: true,
+  origin: process.env.NODE_ENV === 'production' 
+    ? [
+        'https://course-six-theta.vercel.app/', // Замените на ваш frontend URL
+        /\.vercel\.app$/ // Разрешить все Vercel preview URLs
+      ]
+    : ['http://localhost:3001', 'http://localhost:3000'],
   credentials: true
-}));
+}))
 
 app.use(express.json())
 
