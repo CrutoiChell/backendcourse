@@ -1,0 +1,118 @@
+{
+  "users": [
+    {
+      "id": "admin",
+      "name": "Администратор",
+      "email": "admin@gmail.com",
+      "password": "admin",
+      "role": "admin",
+      "createdAt": "2026-03-01T00:00:00.000Z"
+    }
+  ],
+  "courses": [
+    {
+      "id": "1773913915887",
+      "title": "123",
+      "description": "123",
+      "duration": "123",
+      "students": "0",
+      "rating": "5.0",
+      "price": "₽1110"
+    },
+    {
+      "id": "1773915222453",
+      "title": "Верните себе искру: пошаговый выход из эмоционального выгорания.",
+      "description": "Научно обоснованные практики, которые помогут перестать жить «на автопилоте», восстановить ресурс и снова почувствовать вкус к работе и жизни.\nКнопка: Начать путь к восстановлению",
+      "duration": "",
+      "students": "0",
+      "rating": "5.0",
+      "price": "₽0"
+    }
+  ],
+  "tests": [],
+  "schedule": [
+    {
+      "id": "s1",
+      "title": "Групповая терапия: Работа с эмоциями",
+      "instructor": "Анна Петрова",
+      "date": "2026-03-22",
+      "time": "18:00",
+      "duration": "90 мин",
+      "capacity": 15,
+      "enrolled": 9,
+      "type": "group",
+      "isBooked": true
+    },
+    {
+      "id": "s2",
+      "title": "Медитация и осознанность",
+      "instructor": "Михаил Соколов",
+      "date": "2026-03-23",
+      "time": "10:00",
+      "duration": "60 мин",
+      "capacity": 20,
+      "enrolled": 13,
+      "type": "meditation",
+      "isBooked": true
+    },
+    {
+      "id": "s3",
+      "title": "Индивидуальная консультация",
+      "instructor": "Елена Иванова",
+      "date": "2026-03-24",
+      "time": "15:00",
+      "duration": "60 мин",
+      "capacity": 1,
+      "enrolled": 0,
+      "type": "individual",
+      "isBooked": false
+    },
+    {
+      "id": "s4",
+      "title": "Арт-терапия: Выражение через творчество",
+      "instructor": "Ольга Смирнова",
+      "date": "2026-03-25",
+      "time": "17:00",
+      "duration": "120 мин",
+      "capacity": 12,
+      "enrolled": 7,
+      "type": "art",
+      "isBooked": false
+    },
+    {
+      "id": "s5",
+      "title": "Дыхательные практики для снятия стресса",
+      "instructor": "Дмитрий Волков",
+      "date": "2026-03-26",
+      "time": "19:00",
+      "duration": "45 мин",
+      "capacity": 25,
+      "enrolled": 18,
+      "type": "breathing",
+      "isBooked": false
+    },
+    {
+      "id": "s6",
+      "title": "Групповая поддержка: Преодоление выгорания",
+      "instructor": "Мария Козлова",
+      "date": "2026-03-27",
+      "time": "18:30",
+      "duration": "90 мин",
+      "capacity": 15,
+      "enrolled": 10,
+      "type": "group",
+      "isBooked": false
+    }
+  ],
+  "progress": [],
+  "forum": [
+    {
+      "id": "1773914732385",
+      "userId": "1773911367250",
+      "author": "polson",
+      "content": "fgfgf",
+      "date": "19.03.2026",
+      "likes": 0
+    }
+  ]
+}
