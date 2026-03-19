@@ -9,19 +9,17 @@ const __dirname = path.dirname(__filename)
 
 const app = express()
 
-// Исправленная настройка CORS
+// Исправленный блок CORS: убрали слэш в конце и добавили обработку OPTIONS
 app.use(cors({
   origin: (origin, callback) => {
-    // Разрешаем запросы без origin (например, мобильные приложения или curl)
     if (!origin) return callback(null, true);
     
     const allowedOrigins = [
-      'https://course-six-theta.vercel.app', // УБРАН слэш в конце
+      'https://course-six-theta.vercel.app', // ТЕПЕРЬ БЕЗ СЛЭША
       'http://localhost:3000',
       'http://localhost:3001'
     ];
 
-    // Разрешаем, если домен в списке или это превью-ссылка Vercel
     if (allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
       callback(null, true);
     } else {
@@ -33,7 +31,7 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 }))
 
-// Важно для Vercel: явно отвечаем на предварительные запросы браузера
+// Добавлено для Vercel: ответ на предварительные запросы браузера
 app.options('*', cors())
 
 app.use(express.json())
